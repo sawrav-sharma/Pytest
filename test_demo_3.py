@@ -1,5 +1,4 @@
 import pytest
-import selenium
 
 
 def test_1():
