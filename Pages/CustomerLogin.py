@@ -1,12 +1,9 @@
-import time
-
 from Configuration.Config import TestData
 from LocatorsPackage.Locators import Locators
 from Pages.BasePage import BasePage
 from selenium.webdriver.support.select import Select
 
 from Pages.DepositPage import DepositPage
-from Pages.TransactionsPage import Transactions
 
 
 class CustomerLogin(BasePage):
@@ -22,7 +19,6 @@ class CustomerLogin(BasePage):
         ))
         Customers.select_by_visible_text('Harry Potter')
         self.do_click(Locators.CUSTOMER_LOGIN_BTN)
-        # time.sleep(10)
 
     def verifyingLoginCustomer(self):
         self.do_click(Locators.CUSTOMER_LOGIN)
@@ -34,5 +30,3 @@ class CustomerLogin(BasePage):
         elementRec = self.get_element_text(Locators.LOGIN_CUST)
         assert elementRec == "Harry Potter"
         return DepositPage(self.driver)
-
-        # self.do_click(Locators.BANK_MANAGER_LOGIN)
