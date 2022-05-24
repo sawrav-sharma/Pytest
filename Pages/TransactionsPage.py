@@ -13,7 +13,9 @@ class Transactions(BasePage):
     def verifyCreditTransactions(self):
         nowDateTime = dt.now()
         currentDate = nowDateTime.strftime("%B %d, %Y %I:%M")
-        print('\nCurrent date :', currentDate)
+        cDate = currentDate.lstrip("0")
+        print(cDate)
+        print('\nCurrent date :' + currentDate.lstrip())
         # res = []
         # res[:] = currentDate
         # print(res.pop(13))
@@ -34,9 +36,10 @@ class Transactions(BasePage):
         getTransactionType = self.get_element_text(Locators.TRANSACTIONS_TYPE_CREDIT)
         print(getTransactionType)
         getCurrentDateTime = self.get_element_text(Locators.TRANSACTIONS_DATE_TIME)
+        getTime = getCurrentDateTime.rpartition(':')[0]
         print("Transaction time :" + getCurrentDateTime.rpartition(':')[0])
         # print(split(getCurrentDateTime))
-        assert getCurrentDateTime.text == currentDate
+        assert getTime == cDate
         assert getTransactionType == "Credit"
 
     def verifyDebitTransactions(self):
