@@ -17,6 +17,7 @@ class Withdrawl(BasePage):
         self.do_click(Locators.WITHDRAWL_BTN)
         time.sleep(3)
         self.do_send_keys(Locators.AMOUNT_TO_BE_WITHDRAWN_TEXTBOX, TestData.WITHDRAWL_AMOUNT)
+        time.sleep(3)
         self.do_click(Locators.WITHDRAW_BTN)
         # time.sleep(3)
         # try:

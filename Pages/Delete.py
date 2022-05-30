@@ -31,4 +31,5 @@ class DeletionOfCustomer(BasePage):
             self.do_click(Locators.DELETE_CUSTOMERS)
             allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
         except:
+            pass
             print("No customer with name, " + TestData.FIRST_NAME + " is registered with our bank..")

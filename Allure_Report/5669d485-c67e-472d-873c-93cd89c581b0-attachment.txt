@@ -1,7 +1,0 @@
-Deposit Successful
-
-Captured Msg : Transaction successful
-
-Current date : May 30, 2022 7:01
-
-Get time : May 30, 2022 7:00

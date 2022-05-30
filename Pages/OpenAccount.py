@@ -18,9 +18,11 @@ class OpenAccount(BasePage):
         self.do_click(Locators.OPEN_ACCOUNT)
         customers = Select(self.driver.find_element_by_xpath("//select[@name='userSelect']"))
         customers.select_by_visible_text(TestData.FULL_NAME)
+        time.sleep(3)
         print(TestData.FULL_NAME)
         currency = Select(self.driver.find_element_by_xpath("//select[@id='currency']"))
         currency.select_by_visible_text("Dollar")
+        time.sleep(3)
         self.do_click(Locators.PROCESS_BTN)
         # time.sleep(3)
         alertHandle = self.driver.switch_to.alert

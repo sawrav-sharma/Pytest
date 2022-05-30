@@ -19,7 +19,6 @@ class DepositingAmountWithRegisteredUser(BasePage):
         self.do_click(Locators.AFTER_ADDING_AMOUNT_BTN)
         capturingMsg = self.get_element_text(Locators.DEPOSIT_SUCCESSFULL_MSG)
         print(capturingMsg)
-        # time.sleep(5)
-        # time.sleep(5)
+        time.sleep(5)
         assert capturingMsg == TestData.SUCCESSFULLY_DEPOSIT_AMT_MSG
         allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)

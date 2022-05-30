@@ -1,3 +1,5 @@
+import pytest
+
 from Pages.AddCustomer import AddCustomer
 from Pages.CustomerLogin import CustomerLogin
 from Pages.Customers import Customers
@@ -28,6 +30,7 @@ class Test_deletionOfCustomer(BaseTest):
         delCust = DeletionOfCustomer(self.driver)
         delCust.verifyDeleteCustomer()
 
+    @pytest.mark.order(1)
     def test_verificationOfWhetherCustomerGotDeletedOrNot(self):
         managerLog = ManagerLogin(self.driver)
         managerLog.managerLoginOption()
