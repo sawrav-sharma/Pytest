@@ -1,5 +1,9 @@
 import sys, os
-import time
+
+from Pages.AddCustomer import AddCustomer
+from Pages.Customers import Customers
+from Pages.ManagerLogin import ManagerLogin
+from Pages.OpenAccount import OpenAccount
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
@@ -11,9 +15,25 @@ from Tests.test_Base import BaseTest
 class Test_CustomerLogin(BaseTest):
 
     def test_VerifyCombineLogin(self):
-        self.combineLogin = CustomerLogin(self.driver)
-        self.combineLogin.customerLoginOption()
+        managerLog = ManagerLogin(self.driver)
+        managerLog.managerLoginOption()
+        addCust = AddCustomer(self.driver)
+        addCust.addCustomers()
+        openAcnt = OpenAccount(self.driver)
+        openAcnt.verifyOpenAccount()
+        custVerify = Customers(self.driver)
+        custVerify.verifyCustomers()
+        combineLogin = CustomerLogin(self.driver)
+        combineLogin.customerLoginOption()
 
     def test_verifyLoginCustomer(self):
-        self.custLogin = CustomerLogin(self.driver)
-        self.custLogin.verifyingLoginCustomer()
+        managerLog = ManagerLogin(self.driver)
+        managerLog.managerLoginOption()
+        addCust = AddCustomer(self.driver)
+        addCust.addCustomers()
+        openAcnt = OpenAccount(self.driver)
+        openAcnt.verifyOpenAccount()
+        custVerify = Customers(self.driver)
+        custVerify.verifyCustomers()
+        custLogin = CustomerLogin(self.driver)
+        custLogin.verifyingLoginCustomer()

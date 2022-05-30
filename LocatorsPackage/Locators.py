@@ -5,7 +5,7 @@ class Locators:
     CUSTOMER_LOGIN = (By.XPATH, "//button[text()='Customer Login']")
     YOUR_NAME = (By.XPATH, "//select[@id='userSelect']")
     CUSTOMER_LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
-    LOGIN_CUST = (By.XPATH, "//strong[text()=' Welcome ']//span[text()='Harry Potter']")
+    # LOGIN_CUST = (By.XPATH, "//strong[text()=' Welcome ']//span[text()='Harry Potter']")
     '''Deposit'''
     DEPOSIT_BTN = (By.XPATH, "//button[contains(text(),'Deposit')]")
     ADD_AMOUNT = (By.XPATH, "//input[@placeholder='amount']")
@@ -20,9 +20,10 @@ class Locators:
     AMOUNT_WITHDRAWN = (By.XPATH, "(//tr[@id='anchor0']//td[@class='ng-binding'])[2]")
     '''Withdrawl'''
     WITHDRAWL_BTN = (By.XPATH, "//button[contains(text(),'Withdrawl')]")
-    AMOUNT_TO_BE_WITHDRAWN_TEXTBOX = (By.XPATH, "//div[@class='form-group']//input[@placeholder='amount']")
+    AMOUNT_TO_BE_WITHDRAWN_TEXTBOX = (By.XPATH, "//div[@class='form-group']//input[@type='number']")
     WITHDRAW_BTN = (By.XPATH, "//button[text()='Withdraw']")
-    WITHDRAWL_SUCCESSFULL_MSG = (By.XPATH, "//span[text()='Transaction successful']")
+    WITHDRAWL_SUCCESSFUL_MSG = (By.XPATH, "//span[text()='Transaction successful']")
+    WITHDRAWL_UNSUCCESSFUL_MSG = (By.XPATH, "//span[contains(text(),'Transaction Failed.')]")
     '''Manager Options'''
     BANK_MANAGER_LOGIN = (By.XPATH, "//button[text()='Bank Manager Login']")
     TITLE = (By.XPATH, "//title[text()='XYZ Bank']")
@@ -37,3 +38,5 @@ class Locators:
 
     PROCESS_BTN = (By.XPATH, "//button[@type='submit']")
     VERIFYING_CUSTOMER_USING_POSTCODE = (By.XPATH, "//td[contains(text(),{Testdata.POST_CODE})]")
+    SEARCH_CUSTOMERS = (By.XPATH, "//input[@placeholder='Search Customer']")
+    DELETE_CUSTOMERS = (By.XPATH, "//button[text()='Delete']")

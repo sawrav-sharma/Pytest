@@ -1,5 +1,8 @@
 import time
 
+import allure
+from allure_commons.types import AttachmentType
+
 from Configuration.Config import TestData
 from LocatorsPackage.Locators import Locators
 from Pages.BasePage import BasePage
@@ -21,11 +24,13 @@ class AddCustomer(BasePage):
         print('\nPost Code :', TestData.POST_CODE)
         time.sleep(5)
         self.do_click(Locators.ADD_CUSTOMER_BTN)
+
+        time.sleep(5)
         try:
             self.driver.find_element_by_xpath("//button[contains(text(),'Ok')]")
             alertHandle = self.driver.switch_to.alert
             alertHandle.accept()
-            # alertHandle.wait_for_and_accept_alert()
-            alertHandle.self.wait_for_and_switch_to_alert()
+            allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
+
         except:
             pass
