@@ -36,6 +36,8 @@ class Locators:
     POST_CODE = (By.XPATH, "//input[@placeholder='Post Code']")
     ADD_CUSTOMER_BTN = (By.XPATH, "//button[text()='Add Customer']")
 
+    HOME_BTN = (By.XPATH, "//button[text()='Home']")
+    BACK_BTN = (By.XPATH, "//button[text()='Back']")
     PROCESS_BTN = (By.XPATH, "//button[@type='submit']")
     VERIFYING_CUSTOMER_USING_POSTCODE = (By.XPATH, "//td[contains(text(),{Testdata.POST_CODE})]")
     SEARCH_CUSTOMERS = (By.XPATH, "//input[@placeholder='Search Customer']")

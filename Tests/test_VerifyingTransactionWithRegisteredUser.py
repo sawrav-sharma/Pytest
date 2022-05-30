@@ -1,3 +1,5 @@
+import pytest
+
 from Pages.DepositingAmountWithRegisteredUser import DepositingAmountWithRegisteredUser
 from Pages.LoginWithRegisteredUsers import LoginWithRegisteredUser
 from Pages.VerifyingTransactionsWithRegisteredUser import VerifyingTransactionWithRegisteredUser
@@ -6,6 +8,7 @@ from Tests.test_Base import BaseTest
 
 
 class Test_VerifyingTransactionWithRegisteredUser(BaseTest):
+    @pytest.mark.registeredUser
     def test_verifyTransactionWithRegUser(self):
         registerCust = LoginWithRegisteredUser(self.driver)
         registerCust.logIn()

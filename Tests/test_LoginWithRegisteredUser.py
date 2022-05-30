@@ -6,7 +6,6 @@ from Tests.test_Base import BaseTest
 
 class Test_LoginWithRegisteredUser(BaseTest):
 
-    @pytest.mark.registeredUser
     def test_verifyLoginWithRegisteredUsers(self):
         registerCust = LoginWithRegisteredUser(self.driver)
         registerCust.logIn()

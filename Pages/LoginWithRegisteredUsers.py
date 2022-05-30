@@ -1,4 +1,8 @@
+import time
+
+import allure
 import xlrd
+from allure_commons.types import AttachmentType
 from selenium.webdriver.support.select import Select
 
 from Configuration.Config import TestData
@@ -13,20 +17,15 @@ class LoginWithRegisteredUser(BasePage):
         self.driver.get(TestData.BASE_URL)
 
     def logIn(self):
-        # self.do_click(Locators.CUSTOMER_LOGIN)
-        # Customers = Select(self.driver.find_element_by_xpath(
-        #     "//select[@id='userSelect']"
-        # ))
-        # Customers.select_by_visible_text('%s' % str(RegisteredCustomers.ALBUS_DUMBLEDORE.value))
-        # self.do_click(Locators.CUSTOMER_LOGIN_BTN)
         self.do_click(Locators.CUSTOMER_LOGIN)
-        path = "XYZBankAutomationTestCases.xlsx"
-        workbook = xlrd.open_workbook(path)
-        sheet = workbook.sheet_by_name('RegisteredUser')
-        rowCount = sheet.nrows
-        for getRow in range(1, rowCount):
-            fullName = sheet.cell_value(getRow, 0)
-            Customers = Select(select
+        Customers = Select(self.driver.find_element_by_xpath(
+            "//select[@id='userSelect']"
+        ))
+        Customers.select_by_visible_text('%s' % str(RegisteredCustomers.ALBUS_DUMBLEDORE.value))
+        # time.sleep(5)
+        self.do_click(Locators.CUSTOMER_LOGIN_BTN)
+        allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
+        # time.sleep(5)
 
 
 
@@ -46,9 +45,3 @@ class LoginWithRegisteredUser(BasePage):
 
 
 
-
-
-
-
-
-                               )

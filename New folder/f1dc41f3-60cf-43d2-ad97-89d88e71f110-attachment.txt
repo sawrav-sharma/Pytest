@@ -1,0 +1,16 @@
+
+Title : Add Customer
+
+First Name : eGdvUOlUN
+
+Last Name : LgDak
+eGdvUOlUN LgDak
+
+Post Code : 4509
+eGdvUOlUN LgDak
+
+Customer Post Code : 4509
+
+Customer name: eGdvUOlUN LgDak
+
+Test data full name : eGdvUOlUN LgDak

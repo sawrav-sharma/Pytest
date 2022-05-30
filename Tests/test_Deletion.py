@@ -27,3 +27,9 @@ class Test_deletionOfCustomer(BaseTest):
         transaction.verifyCreditTransactions()
         delCust = DeletionOfCustomer(self.driver)
         delCust.verifyDeleteCustomer()
+
+    def test_verificationOfWhetherCustomerGotDeletedOrNot(self):
+        managerLog = ManagerLogin(self.driver)
+        managerLog.managerLoginOption()
+        delCust = DeletionOfCustomer(self.driver)
+        delCust.verifyingCustomerDeletedOrNot()

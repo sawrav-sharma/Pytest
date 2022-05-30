@@ -13,10 +13,6 @@ class ManagerLogin(BasePage):
 
     def managerLoginOption(self):
         self.do_click(Locators.BANK_MANAGER_LOGIN)
-        addCust = self.get_element_text(Locators.ADD_CUSTOMERS)
-        print('\nTitle :', addCust)
-        assert addCust == "Add Customer"
-        allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
 
     def verifyingTitle(self):
         self.do_click(Locators.BANK_MANAGER_LOGIN)

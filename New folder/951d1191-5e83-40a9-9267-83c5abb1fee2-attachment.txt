@@ -1,0 +1,20 @@
+
+Title : Add Customer
+
+First Name : eGdvUOlUN
+
+Last Name : LgDak
+eGdvUOlUN LgDak
+
+Post Code : 4509
+eGdvUOlUN LgDak
+
+Customer Post Code : 4509
+103923541
+Deposit Successful
+
+Current date : May 30, 2022 1:03
+
+Amount deposited message : 103923541
+
+Transaction type : Credit

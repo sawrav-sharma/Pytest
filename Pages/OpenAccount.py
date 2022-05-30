@@ -22,11 +22,14 @@ class OpenAccount(BasePage):
         currency = Select(self.driver.find_element_by_xpath("//select[@id='currency']"))
         currency.select_by_visible_text("Dollar")
         self.do_click(Locators.PROCESS_BTN)
-        time.sleep(3)
+        # time.sleep(3)
+        alertHandle = self.driver.switch_to.alert
+        alertHandle.accept()
+        allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
         # allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
-        try:
-            self.driver.find_element_by_xpath("//button[contains(text(),'Ok')]")
-            alertHandle = self.driver.switch_to.alert
-            alertHandle.accept()
-        except:
-            pass
+        # try:
+        #     self.driver.find_element_by_xpath("//button[contains(text(),'Ok')]")
+        #     alertHandle = self.driver.switch_to.alert
+        #     alertHandle.accept()
+        # except:
+        #     pass
