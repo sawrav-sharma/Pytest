@@ -1,9 +1,8 @@
-import allure
-from allure_commons.types import AttachmentType
-
 from Configuration.Config import TestData
 from LocatorsPackage.Locators import Locators
 from Pages.BasePage import BasePage
+import allure
+from allure_commons.types import AttachmentType
 
 
 class ManagerLogin(BasePage):

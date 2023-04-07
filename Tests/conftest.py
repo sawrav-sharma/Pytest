@@ -23,7 +23,7 @@ def init_driver(request):
 
 '''Hook for adding info into an HTML report'''
 
-
-def pytest_configure(config):
-    config._metadata['Project Name'] = 'Sauce Demo'
-    config._metadata['Tester'] = 'Saurav'
+#
+# def pytest_configure(config):
+#     config._metadata['Project Name'] = 'Sauce Demo'
+#     config._metadata['Tester'] = 'Saurav'

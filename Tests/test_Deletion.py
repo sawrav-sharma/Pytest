@@ -1,3 +1,8 @@
+import os
+import sys
+myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath + '/../')
+
 import pytest
 
 from Pages.AddCustomer import AddCustomer
@@ -30,7 +35,7 @@ class Test_deletionOfCustomer(BaseTest):
         delCust = DeletionOfCustomer(self.driver)
         delCust.verifyDeleteCustomer()
 
-    @pytest.mark.order(1)
+    # @pytest.mark.order(1)
     def test_verificationOfWhetherCustomerGotDeletedOrNot(self):
         managerLog = ManagerLogin(self.driver)
         managerLog.managerLoginOption()
