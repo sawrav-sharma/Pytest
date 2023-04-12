@@ -18,14 +18,10 @@ class LoginWithRegisteredUser(BasePage):
 
     def logIn(self):
         self.do_click(Locators.CUSTOMER_LOGIN)
-        Customers = Select(self.driver.find_element_by_xpath(
-            "//select[@id='userSelect']"
-        ))
+        Customers = Select(self.driver.find_element("xpath", "//select[@id='userSelect']"))
         Customers.select_by_visible_text('%s' % str(RegisteredCustomers.ALBUS_DUMBLEDORE.value))
-        # time.sleep(5)
         self.do_click(Locators.CUSTOMER_LOGIN_BTN)
         allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)
-        # time.sleep(5)
 
 
 

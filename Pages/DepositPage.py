@@ -18,7 +18,6 @@ class DepositPage(BasePage):
         self.do_send_keys(Locators.ADD_AMOUNT, TestData.DEPOSITING_AMOUNT)
         print(TestData.DEPOSITING_AMOUNT)
         self.do_click(Locators.AFTER_ADDING_AMOUNT_BTN)
-        time.sleep(3)
         capturingMsg = self.get_element_text(Locators.DEPOSIT_SUCCESSFULL_MSG)
         print(capturingMsg)
         assert capturingMsg == TestData.SUCCESSFULLY_DEPOSIT_AMT_MSG

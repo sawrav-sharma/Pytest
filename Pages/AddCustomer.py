@@ -23,9 +23,7 @@ class AddCustomer(BasePage):
         self.do_send_keys(Locators.POST_CODE, TestData.POST_CODE)
         print(TestData.FULL_NAME)
         print('\nPost Code :', TestData.POST_CODE)
-        # time.sleep(5)
         self.do_click(Locators.ADD_CUSTOMER_BTN)
-        # time.sleep(5)
-        alertHandle = self.driver.switch_to.alert
-        alertHandle.accept()
+        self.if_alert()
+        self.do_click(Locators.HOME_BTN)
         allure.attach(self.driver.get_screenshot_as_png(), attachment_type=AttachmentType.PNG)

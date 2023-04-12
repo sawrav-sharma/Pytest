@@ -5,7 +5,6 @@ class Locators:
     CUSTOMER_LOGIN = (By.XPATH, "//button[text()='Customer Login']")
     YOUR_NAME = (By.XPATH, "//select[@id='userSelect']")
     CUSTOMER_LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
-    # LOGIN_CUST = (By.XPATH, "//strong[text()=' Welcome ']//span[text()='Harry Potter']")
     '''Deposit'''
     DEPOSIT_BTN = (By.XPATH, "//button[contains(text(),'Deposit')]")
     ADD_AMOUNT = (By.XPATH, "//input[@placeholder='amount']")
@@ -13,8 +12,8 @@ class Locators:
     DEPOSIT_SUCCESSFULL_MSG = (By.XPATH, "//span[text()='Deposit Successful']")
     '''Transactions'''
     TRANSACTIONS_BTN = (By.XPATH, "//button[contains(text(),'Trans')]")
-    TRANSACTIONS_TYPE_CREDIT = (By.XPATH, "//td[contains(text(),'Credit')]")
-    TRANSACTIONS_DATE_TIME = (By.XPATH, "//tr[@id='anchor0']//td[contains(text(),'May')]")
+    TRANSACTIONS_TYPE_CREDIT = (By.XPATH, "(//td[contains(text(),'Credit')])[1]")
+    TRANSACTIONS_DATE_TIME = (By.XPATH, "//tr[@id='anchor0']//td[contains(text(),'M')]")
     TRANSACTIONS_TYPE_DEBIT = (By.XPATH, "//td[contains(text(),'Debit')]")
     AMOUNT_DEPOSITED = (By.XPATH, "(//tr[@id='anchor0']//td[@class='ng-binding'])[2]")
     AMOUNT_WITHDRAWN = (By.XPATH, "(//tr[@id='anchor0']//td[@class='ng-binding'])[2]")
@@ -28,7 +27,7 @@ class Locators:
     BANK_MANAGER_LOGIN = (By.XPATH, "//button[text()='Bank Manager Login']")
     TITLE = (By.XPATH, "//title[text()='XYZ Bank']")
     OPEN_ACCOUNT = (By.XPATH, "//button[contains(text(),'Open Account')]")
-    CUSTOMERS = (By.XPATH, "(//button[contains(text(),'Customer')])[2]")
+    CUSTOMERS = (By.XPATH, "//button[@ng-click='showCust()']")
     '''Add Customers'''
     ADD_CUSTOMERS = (By.XPATH, "//button[contains(text(),'Add Customer')]")
     FIRST_NAME = (By.XPATH, "//input[@placeholder='First Name']")

@@ -23,8 +23,8 @@ class Test_CustomerLogin(BaseTest):
         openAcnt.verifyOpenAccount()
         custVerify = Customers(self.driver)
         custVerify.verifyCustomers()
-        combineLogin = CustomerLogin(self.driver)
-        combineLogin.customerLoginOption()
+        custLogin = CustomerLogin(self.driver)
+        custLogin.customerLoginOption()
 
     def test_verifyLoginCustomer(self):
         managerLog = ManagerLogin(self.driver)
