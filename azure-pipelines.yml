@@ -1,7 +1,8 @@
 trigger:
 - XYZBank
 
-
+pool:
+  vmImage: ubuntu-latest
 steps:
 - task: BatchScript@1
   inputs:
