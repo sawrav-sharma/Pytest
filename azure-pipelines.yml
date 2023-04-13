@@ -18,8 +18,12 @@ steps:
     filename: 'run_tests.bat'
   workingDirectory: $(System.DefaultWorkingDirectory)
 
-- task: PublishTestResults@2
-  inputs:
-    testRunner: pytest
-    testResultsFiles: '**/test-results.xml'
-    testRunTitle: 'Test Results'
+- script: |
+    title: 'pytest scripts'
+    testroot: '$(System.DefaultWorkingDirectory)'
+    patterns: '.py'
+    packages: 'Tests/'
+    resultfile: 'pytest.html'
+    pylint: true
+    pytest Tests/
+  workingDirectory: $(System.DefaultWorkingDirectory)
