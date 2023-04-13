@@ -19,16 +19,15 @@ steps:
     pip install allure-pytest
     pip install faker
     pip install xlrd
-    pytest Tests/
+    pytest --alluredir=Allure_Report --cov=Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    # PathToPublish: './TestResults/'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
     testRunTitle: 'Script results'
+- task: PublishBuildArtifacts@1
+  inputs:
+    ArtifactName: 'Report'
+    PathToPublish: './TestResults/'
