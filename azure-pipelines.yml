@@ -19,7 +19,7 @@ steps:
     pip install allure-pytest
     pip install faker
     pip install xlrd
-    pytest --alluredir=Allure_Report --cov=Tests/
+    pytest --alluredir=Allure_Report Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
 - task: PublishTestResults@2
