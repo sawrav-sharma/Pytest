@@ -2,7 +2,7 @@ trigger:
 - XYZBank
 
 pool:
-  vmImage: ubuntu-latest
+  Agent: 1733832
 steps:
 - task: BatchScript@1
   inputs:
