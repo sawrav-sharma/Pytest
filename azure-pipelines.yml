@@ -31,3 +31,7 @@ steps:
   inputs:
     ArtifactName: 'Report'
     PathToPublish: './TestResults/'
+- task: AllureGenerate@1
+  inputs:
+    resultsDir: 'Allure_Results'
+    targetDir: 'allure-report/$(Build.BuildNumber)'
