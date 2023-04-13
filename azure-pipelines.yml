@@ -21,10 +21,14 @@ steps:
     pip install xlrd
     pytest Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
-
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    # PathToPublish: './TestResults/'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: PublishTestResults@2
   inputs:
-    testRunner: XUnit
-    testResultsFiles: './TestResults/'
-    testRunTitle: 'Test Results'
-    buildConfiguration:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Script results'
