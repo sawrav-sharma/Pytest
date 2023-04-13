@@ -25,5 +25,5 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testRunner: XUnit
-    testResultsFiles: '**/test_results.html'
+    testResultsFiles: '**/TestResults/test_results.html'
     testRunTitle: 'Test Results'
