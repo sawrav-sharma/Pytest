@@ -15,7 +15,7 @@ steps:
     source env/bin/activate
     pip install pytest
     pip install selenium
-    pytest tests/
+    pytest Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
 - task: PublishTestResults@2
