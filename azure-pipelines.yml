@@ -20,12 +20,13 @@ steps:
     pip install faker
     pip install xlrd
     pytest --alluredir=Allure_Report Tests/
+    filename: 'run_tests.bat'
   workingDirectory: $(System.DefaultWorkingDirectory)
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/'
     testRunTitle: 'Script results'
 - task: PublishBuildArtifacts@1
   inputs:
