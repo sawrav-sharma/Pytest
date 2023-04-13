@@ -9,18 +9,16 @@ steps:
   inputs:
     versionSpec: '3.10'
     addToPath: true
- 
-- script: |
-    filename: 'run_tests.bat'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-    workingFolder: 'XyzAutomation'
 
 - script: |
-    title: 'pytest scripts'
-    testroot: '$(System.DefaultWorkingDirectory)'
-    patterns: '.py'
-    packages: 'Tests/'
-    resultfile: 'pytest.html'
-    pylint: true
-    pytest Tests/
+    python -m venv env
+    source env/bin/activate
+    pip install pytest
+    pytest tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: XUnit
+    testResultsFiles: '**/test-results.xml'
+    testRunTitle: 'Test Results'
