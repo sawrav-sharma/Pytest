@@ -12,7 +12,11 @@ steps:
 
 - script: |
     filename: 'run_tests.bat'
-  workingDirectory: $(System.DefaultWorkingDirectory)
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
+ 
+- script: |
+    filename: 'run_tests.bat'
+    workingFolder: 'XyzAutomation'
 
 - script: |
     title: 'pytest scripts'
