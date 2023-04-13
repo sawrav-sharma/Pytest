@@ -1,24 +1,25 @@
 trigger:
-  - XYZBank
+- XYZBank
 
 pool:
-  vmImage: windows-latest
-  steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '3.10'
-        addToPath: true
+  vmImage: 'windows-latest'
 
-    - script:
-        pytest tests/
-      workingDirectory: $(System.DefaultWorkingDirectory)
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10'
+    addToPath: true
 
-    - script:
-        filename: 'run_tests.bat'
-      workingDirectory: $(System.DefaultWorkingDirectory)
+- script: |
+    pytest Tests/
+  workingDirectory: $(System.DefaultWorkingDirectory)
 
-    - task: PublishTestResults@2
-      inputs:
-        testRunner: pytest
-        testResultsFiles: '**/test-results.xml'
-        testRunTitle: 'Test Results'
+- script: |
+    filename: 'run_tests.bat'
+  workingDirectory: $(System.DefaultWorkingDirectory)
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: pytest
+    testResultsFiles: '**/test-results.xml'
+    testRunTitle: 'Test Results'
