@@ -15,7 +15,7 @@ steps:
     source env/bin/activate
     pip install pytest
     pip install selenium
-    pip install webdrivermanager
+    pip install webdriver_manager
     pip install allure-pytest
     pytest Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
