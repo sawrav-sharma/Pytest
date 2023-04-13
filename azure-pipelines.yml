@@ -5,11 +5,6 @@ pool:
   vmImage: windows-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- task: printAllVariables@1
-  displayName: 'Print all variables'
 
 - task: BatchScript@1
   inputs:
@@ -20,5 +15,5 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'NUnit'
-    testResultsFiles: '**/pytest.xml'
+    testResultsFiles: '**/pytest.html'
     testRunTitle: 'Test Run'
