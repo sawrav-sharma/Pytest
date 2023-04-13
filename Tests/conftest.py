@@ -24,21 +24,21 @@ def init_driver(request):
     yield
     web_driver.close()
 
-
-def __init__(self):
-    self.unittest_location = os.sep.join(pytest.__file__.split(os.sep)[:-1])
-    self.stderr = sys.__stderr__
-    self.skip = False
-
-
-def write(self, text):
-    if self.skip and text.find("\n") != -1:
-        self.skip = False
-    elif self.skip:
-        pass
-    else:
-        self.skip = text.find(self.unittest_location) != -1
-        if not self.skip: self.stderr.write(text)
+#
+# def __init__(self):
+#     self.unittest_location = os.sep.join(pytest.__file__.split(os.sep)[:-1])
+#     self.stderr = sys.__stderr__
+#     self.skip = False
+#
+#
+# def write(self, text):
+#     if self.skip and text.find("\n") != -1:
+#         self.skip = False
+#     elif self.skip:
+#         pass
+#     else:
+#         self.skip = text.find(self.unittest_location) != -1
+#         if not self.skip: self.stderr.write(text)
 #
 # def pytest_configure(config):
 #     config._metadata['Project Name'] = 'Sauce Demo'

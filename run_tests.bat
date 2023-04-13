@@ -1,14 +1,8 @@
 @echo off
 
-REM Install dependencies
-pip install -r requirements.txt
-
-REM Run tests
-pytest --junitxml=pytest.xml
-
 echo Running tests...
 
-pytest --alluredir=Allure-Report Tests/
+pytest --alluredir=Allure_Report --cov=Tests/
 
 echo Opening Allure report...
 

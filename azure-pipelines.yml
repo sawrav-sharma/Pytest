@@ -2,23 +2,28 @@ trigger:
 - XYZBank
 
 pool:
-  vmImage: windows-latest
+  vmImage: 'windows-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- task: printAllVariables@1
-  displayName: 'Print all variables'
-
-- task: BatchScript@1
+- task: UsePythonVersion@0
   inputs:
-    filename: 'run_tests.bat'
-    arguments: ''
-  displayName: 'Run tests'
+    versionSpec: '3.10'
+    addToPath: true
+
+- script: |
+    python -m venv env
+    source env/bin/activate
+    pip install pytest
+    pip install selenium
+    pip install webdriver_manager
+    pip install allure-pytest
+    pip install faker
+    pip install xlrd
+    pytest Tests/
+  workingDirectory: $(System.DefaultWorkingDirectory)
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/pytest.xml'
-    testRunTitle: 'Test Run'
+    testRunner: XUnit
+    testResultsFiles: '**/test-results.xml'
+    testRunTitle: 'Test Results'
