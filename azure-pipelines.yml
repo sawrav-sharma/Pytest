@@ -1,19 +1,24 @@
 trigger:
-- XYZBank
+  - XYZBank
 
 pool:
   vmImage: windows-latest
+  steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.8'
+        addToPath: true
 
-steps:
+    - script:
+        pytest tests/
+      workingDirectory: $(System.DefaultWorkingDirectory)
 
-- task: BatchScript@1
-  inputs:
-    filename: 'run_tests.bat'
-    arguments: ''
-  displayName: 'Run tests'
+    - script:
+        filename: 'run_tests.bat'
+      workingDirectory: $(System.DefaultWorkingDirectory)
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/pytest.html'
-    testRunTitle: 'Test Run'
+    - task: PublishTestResults@2
+      inputs:
+        testRunner: pytest
+        testResultsFiles: '**/test-results.xml'
+        testRunTitle: 'Test Results'
