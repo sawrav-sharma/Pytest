@@ -11,10 +11,6 @@ steps:
     addToPath: true
 
 - script: |
-    pytest Tests/
-  workingDirectory: $(System.DefaultWorkingDirectory)
-
-- script: |
     filename: 'run_tests.bat'
   workingDirectory: $(System.DefaultWorkingDirectory)
 
