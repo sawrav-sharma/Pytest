@@ -18,6 +18,7 @@ steps:
     pip install webdriver_manager
     pip install allure-pytest
     pip install faker
+    pip install xlrd
     pytest Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
