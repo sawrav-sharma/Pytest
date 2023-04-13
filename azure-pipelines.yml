@@ -2,7 +2,7 @@ trigger:
 - XYZBank
 
 pool:
-  vmImage: agent001
+  vmImage: windows-latest
 
 steps:
 - task: BatchScript@1
