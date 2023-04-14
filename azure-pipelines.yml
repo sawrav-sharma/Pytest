@@ -19,7 +19,10 @@ steps:
     pip install allure-pytest
     pip install faker
     pip install xlrd
-    pytest --alluredir=Allure_Report Tests/
+    pip install pytest pytest-azurepipelines
+    pip install pytest-cov
+    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
+    # pytest --alluredir=Allure_Report Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
 - task: PublishTestResults@2
