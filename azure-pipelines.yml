@@ -30,7 +30,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      allure generate allure-results -o allure-report
+      allure serve $(System.DefaultWorkingDirectory)/Allure_Report
   condition: always()
 
 - task: PublishBuildArtifacts@1
