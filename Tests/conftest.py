@@ -1,8 +1,4 @@
-import os
-import sys
-
 import pytest
-import base64
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager

@@ -1,8 +1,5 @@
-import time
-
 import allure
 from allure_commons.types import AttachmentType
-from selenium.webdriver.common.alert import Alert
 
 from Configuration.Config import TestData
 from LocatorsPackage.Locators import Locators
