@@ -19,11 +19,29 @@ steps:
     pip install allure-pytest
     pip install faker
     pip install xlrd
-    pytest Tests/
+    pip install pytest pytest-azurepipelines
+    pip install pytest-cov
+    pytest --alluredir=Allure_Report Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
 - task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
-    testRunner: XUnit
-    testResultsFiles: '**/test_results.xml'
-    testRunTitle: 'Test Results'
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Script results'
+
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     ArtifactName: 'Report'
+#     PathToPublish: './TestResults/'
