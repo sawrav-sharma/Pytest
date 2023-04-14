@@ -31,6 +31,22 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/allure-results/*.xml'
 
+- script: |
+    wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip -O allure.zip
+    unzip allure.zip -d /opt
+    export PATH="$PATH:/opt/allure-2.14.0/bin"
+  displayName: 'Install Allure command-line tool'
+
+- script: |
+    allure generate ./allure-results --clean -o ./allure-report
+  displayName: 'Generate Allure Report'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Allure Report'
+  inputs:
+    artifactName: 'allure-report'
+    pathtoPublish: '$(System.DefaultWorkingDirectory)/allure-report'
+
 - task: Bash@3
   displayName: 'Generate Allure Report'
   inputs:
