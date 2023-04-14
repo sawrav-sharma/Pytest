@@ -45,3 +45,7 @@ steps:
   inputs:
     ArtifactName: 'Report'
     PathToPublish: './TestResults/'
+- task: AllureGenerate@1
+  inputs:
+    resultsDir: 'allure-results'
+    targetDir: '$(System.DefaultWorkingDirectory)/allure-report/$(Build.BuildNumber)'
