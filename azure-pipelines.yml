@@ -24,11 +24,11 @@ steps:
     pytest --alluredir=Allure_Report Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
-# - task: PublishTestResults@2
-#   condition: succeededOrFailed()
-#   inputs:
-#     testResultsFiles: '**/test-*.xml'
-#     testRunTitle: 'Publish test results for Python $(python.version)'
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
 
 - task: PublishCodeCoverageResults@1
   inputs:
