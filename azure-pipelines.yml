@@ -21,7 +21,6 @@ steps:
     pip install xlrd
     pip install pytest pytest-azurepipelines
     pip install pytest-cov
-    # pytest --alluredir=Allure_Report Tests/
     pytest --alluredir=./allure-results --cov=Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
   displayName: 'Run pytest with Allure'
