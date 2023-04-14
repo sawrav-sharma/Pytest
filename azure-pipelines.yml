@@ -21,16 +21,23 @@ steps:
     pip install xlrd
     pip install pytest pytest-azurepipelines
     pip install pytest-cov
-    pytest --alluredir=Allure_Report Tests/
+    # pytest --alluredir=Allure_Report Tests/
+    pytest --alluredir=./allure-results --cov=Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
+  displayName: 'Run pytest with Allure'
 
-####
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/allure-results/*.xml'
+
 - task: Bash@3
   displayName: 'Generate Allure Report'
   inputs:
     targetType: 'inline'
     script: |
-      allure serve $(System.DefaultWorkingDirectory)/Allure_Report
+      allure generate allure-results -o allure-report
   condition: always()
 
 - task: PublishBuildArtifacts@1
@@ -38,7 +45,7 @@ steps:
   inputs:
     artifactName: 'allure-report'
     pathtoPublish: '$(System.DefaultWorkingDirectory)/allure-report'
-####
+
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
