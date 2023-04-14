@@ -24,6 +24,22 @@ steps:
     pytest --alluredir=Allure_Report Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
 
+####
+- task: Bash@3
+  displayName: 'Generate Allure Report'
+  inputs:
+    targetType: 'inline'
+    script: |
+      allure generate allure-results -o allure-report
+  condition: always()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Allure Report'
+  inputs:
+    artifactName: 'allure-report'
+    pathtoPublish: '$(System.DefaultWorkingDirectory)/allure-report'
+####
+
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
