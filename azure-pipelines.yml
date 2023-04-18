@@ -84,7 +84,14 @@ steps:
     ArtifactName: 'Report'
     PathToPublish: './TestResults/'
 
-# - task: AllureGenerate@1
-#   inputs:
-#     resultsDir: 'allure-results'
-#     targetDir: 'allure-report/$(Build.BuildNumber)'
+- task: SendEmail@1
+  inputs:
+    To: 'saurav.sharma@infostride.com'
+    CC: 'ankit.kumar@infostride.com'
+    From: 'fortestingpurpose9211@gmail.com'
+    Subject: 'test results'
+    BodyAsHtml: false
+    AddAttachment: true
+    SmtpServer: 'smtp.gmail.com'
+    SmtpUsername: 'fortestingpurpose9211@gmail.com'
+    SmtpPassword: 'Testing@123'
