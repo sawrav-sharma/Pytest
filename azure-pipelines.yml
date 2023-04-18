@@ -93,6 +93,7 @@ steps:
     Body: |
       Pipeline: $(System.TeamProject)/$(System.DefinitionName)
       Run ID: $(Build.BuildId)
+    Attachment: '$(System.DefaultWorkingDirectory)/test-results.xml'
     SmtpServer: 'smtp.gmail.com'
     SmtpUsername: 'fortestingpurpose9211@gmail.com'
     SmtpPassword: 'ykmfoidvtjlhytao'
