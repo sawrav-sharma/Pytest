@@ -19,7 +19,7 @@ steps:
     pip install allure-pytest
     pip install faker
     pip install xlrd
-    pip install pytest pytest-azurepipelines
+      # pip install pytest pytest-azurepipelines
     pip install pytest-cov
     pytest --alluredir=./allure-results --cov=Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
@@ -96,4 +96,4 @@ steps:
     SmtpServer: 'smtp.gmail.com'
     SmtpUsername: 'fortestingpurpose9211@gmail.com'
     SmtpPassword: 'ykmfoidvtjlhytao'
-    SmtpPort: '465'
+    SmtpPort: '587'
