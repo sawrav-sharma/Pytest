@@ -21,15 +21,16 @@ steps:
     pip install xlrd
     pip install pytest pytest-azurepipelines
     pip install pytest-cov
-    pytest --alluredir=./allure-results --cov=Tests/
+    pytest --html=report.html
+     # pytest --alluredir=./allure-results --cov=Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
   displayName: 'Run pytest with Allure'
 
-- task: PublishTestResults@2
-  displayName: 'Publish Test Results'
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/allure-results/*.xml'
+# - task: PublishTestResults@2
+#   displayName: 'Publish Test Results'
+#   inputs:
+#     testResultsFormat: 'JUnit'
+#     testResultsFiles: '**/allure-results/*.xml'
 
 # - script: |
 #     wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip -O allure.zip
@@ -79,10 +80,10 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     testRunTitle: 'Script results'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    ArtifactName: 'Report'
-    PathToPublish: './TestResults/'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     ArtifactName: 'Report'
+#     PathToPublish: './TestResults/'
 
 - task: SendEmail@1
   inputs:
