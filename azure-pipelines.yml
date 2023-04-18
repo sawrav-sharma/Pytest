@@ -21,11 +21,17 @@ steps:
     pip install xlrd
     pip install pytest pytest-azurepipelines
     pip install pytest-cov
+    pip install pytest-html
     pytest --html=report.html
      # pytest --alluredir=./allure-results --cov=Tests/
   workingDirectory: $(System.DefaultWorkingDirectory)
   displayName: 'Run pytest with Allure'
 
+- task: PublishPipelineArtifact@1
+  inputs:
+    artifactName: 'pytest-report'
+    targetPath: '$(System.DefaultWorkingDirectory)/report.html'
+    publishLocation: 'pipeline'
 # - task: PublishTestResults@2
 #   displayName: 'Publish Test Results'
 #   inputs:
@@ -94,7 +100,7 @@ steps:
     Body: |
       Pipeline: $(System.TeamProject)/$(System.DefinitionName)
       Run ID: $(Build.BuildId)
-    Attachment: '$(System.DefaultWorkingDirectory)/**/TEST-*.xml'
+    Attachment: '$(System.DefaultWorkingDirectory)/report.html'
     SmtpServer: 'smtp.gmail.com'
     SmtpUsername: 'fortestingpurpose9211@gmail.com'
     SmtpPassword: 'ykmfoidvtjlhytao'
