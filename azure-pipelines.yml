@@ -90,7 +90,7 @@ steps:
     CC: 'ankit.kumar@infostride.com'
     From: 'fortestingpurpose9211@gmail.com'
     Subject: 'test results'
-    BodyAsHtml: false
+    BodyAsHtml: true
     AddAttachment: true
     SmtpServer: 'smtp.gmail.com'
     SmtpUsername: 'fortestingpurpose9211@gmail.com'
