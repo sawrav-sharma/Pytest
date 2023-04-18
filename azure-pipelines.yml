@@ -95,4 +95,5 @@ steps:
       Run ID: $(Build.BuildId)
     SmtpServer: 'smtp.gmail.com'
     SmtpUsername: 'fortestingpurpose9211@gmail.com'
-    SmtpPassword: 'Testing@123'
+    SmtpPassword: 'ykmfoidvtjlhytao'
+    SmtpPort: '465'
